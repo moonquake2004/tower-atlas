@@ -1,5 +1,9 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""遍历全部塔型：切 3D 详情，收集 JS 报错与标注"""
+"""遍历全部塔型：切 3D 详情，收集 JS 报错与标注。
+
+注意：本脚本只做「打得开吗、报错吗」的粗查。
+数据与几何是否对得上，用 assets/data/validate.py --live（会反查 towers.json 的区间）。"""
 import os, re, io, sys, threading, http.server, socketserver, functools, time, json
 ROOT = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..'))
 PORT = 8923
@@ -18,7 +22,7 @@ threading.Thread(target=serve, daemon=True).start()
 time.sleep(0.8)
 from playwright.sync_api import sync_playwright
 
-src = io.open(os.path.join(ROOT, 'assets', 'ui', 'd_towers.js'), encoding='utf-8').read()
+src = io.open(os.path.join(ROOT, 'assets', 'ui', 'd_towers.gen.js'), encoding='utf-8').read()
 ids = re.findall(r"\{ id:'([^']+)'", src)
 
 errs, rows = [], []

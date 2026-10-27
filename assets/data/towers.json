@@ -1,0 +1,1965 @@
+{
+  "$schema": "./towers.schema.json",
+  "meta": {
+    "title": "输电铁塔型式图鉴数据集",
+    "description": "31 座典型输电铁塔的型式、参数区间、三维渲染基准与出处。本文件是唯一数据源，assets/ui/d_towers.gen.js 由它生成，不要直接改生成物。",
+    "version": "2.0.0",
+    "updated": "2026-10-27",
+    "unitLength": "m",
+    "rangeConvention": "min/max 为资料给出的取值范围；null 表示资料未给出。approx=true 表示原文为「约/~」，openEnded 表示原文为「≤/≥」。"
+  },
+  "shapeCatalog": {
+    "shang": {
+      "name": "上字型",
+      "note": "单柱，顶相居中、两下相挂横担"
+    },
+    "cat": {
+      "name": "猫头型",
+      "note": "宽顶窄颏：顶梁挂地线，面颊墙挂边相，V 形下颌托中相"
+    },
+    "cup": {
+      "name": "酒杯型",
+      "note": "杯腰下横担挂边相，杯口横梁跨中垂下中相"
+    },
+    "stem": {
+      "name": "干字型",
+      "note": "塔身近直，上下两层横担呈「干」字"
+    },
+    "drum": {
+      "name": "鼓型",
+      "note": "三层横担垂直排列，中横担外凸成鼓形"
+    },
+    "portal": {
+      "name": "门型",
+      "note": "双柱加顶梁，大跨越与多回共用"
+    },
+    "ramhorn": {
+      "name": "羊角型",
+      "note": "塔身上部分叉为两只外扬羊角，挂双极"
+    }
+  },
+  "towers": [
+    {
+      "id": "shang110",
+      "name": "上字型直线塔",
+      "shape": "shang",
+      "voltage": "110kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "SZ(上字)",
+      "ranges": {
+        "hCall": {
+          "text": "12–18",
+          "min": 12,
+          "max": 18,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "18–26",
+          "min": 18,
+          "max": 26,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "3.0–4.0",
+          "min": 3,
+          "max": 4,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "LGJ-150/25～240/30 (1×)",
+        "bundle": 1,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "1根(JLB/OPGW)",
+        "insulator": "悬垂 7–9×XP-70",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "25–30 m/s",
+        "ice": "5–10 mm",
+        "weight": "1.5–3.0",
+        "spanH": "200–350"
+      },
+      "render": {
+        "height": 22,
+        "rootOpen": 3.5,
+        "arrangement": "不对称三角(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "轻雷轻冰、导线截面较小线路",
+      "desc": "塔顶单避雷线，三相呈不对称三角形（顶相居中、两下相挂横担），结构简单耗钢少，35/110kV 常用。属通用塔型，无单一工程专属。",
+      "source": {
+        "verified": false,
+        "line": "110kV 单回线路通用塔型（非单一工程专属）"
+      }
+    },
+    {
+      "id": "cat110",
+      "name": "猫头型直线塔",
+      "shape": "cat",
+      "voltage": "110–220kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "猫头/ZM",
+      "ranges": {
+        "hCall": {
+          "text": "15–27",
+          "min": 15,
+          "max": 27,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "22–38",
+          "min": 22,
+          "max": 38,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "4.0–7.0",
+          "min": 4,
+          "max": 7,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "LGJ-240/30～2×LGJ-400/35",
+        "bundle": 2,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(JLB/OPGW)",
+        "insulator": "悬垂 7–13×XP-70/160",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "25–30 m/s",
+        "ice": "5–10 mm",
+        "weight": "110kV:2.2–5.9 / 220kV:2.1–7.1",
+        "spanH": "300–500"
+      },
+      "render": {
+        "height": 32,
+        "rootOpen": 6,
+        "arrangement": "三角(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "省走廊、三角排列",
+      "desc": "形如猫头：顶部格构横梁两端挂地线，两侧面颊墙下端挂两边相，中相由汇合的 V 形下颌托到\"猫鼻\"（比两边相更低）——这个\"宽顶窄颏\"的头部轮廓就是猫头塔的判据。三角排列省走廊、塔重较轻，适用于无冰区。国网新版通用设计 220kV HD22D 模块 ZMC2 即为直线猫头塔，2024 年通过真型试验。",
+      "source": {
+        "verified": true,
+        "line": "国网通用设计 220kV HD22D 模块 ZMC2 直线猫头塔"
+      }
+    },
+    {
+      "id": "cup220",
+      "name": "酒杯型直线塔",
+      "shape": "cup",
+      "voltage": "220–500kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "酒杯/ZB",
+      "ranges": {
+        "hCall": {
+          "text": "21–48",
+          "min": 21,
+          "max": 48,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "30–60",
+          "min": 30,
+          "max": 60,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "6–13",
+          "min": 6,
+          "max": 13,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2×LGJ-300/40～4×LGJ-400/35",
+        "bundle": 2,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(JLB/OPGW)",
+        "insulator": "悬垂 双/多串",
+        "insulatorType": "II",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "5–15 mm",
+        "weight": "220kV:3.8–8.5 / 500kV:12–34",
+        "spanH": "350–600"
+      },
+      "render": {
+        "height": 48,
+        "rootOpen": 11,
+        "arrangement": "水平(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "重冰区/多雷区，水平排列",
+      "desc": "形如酒杯，三相水平排列、两根避雷线，宽基抗风，重冰/多雷区首选。松东李线（新中国首条 220kV，369km/919 基铁塔）所用酒杯塔即由设计人员参考既有猫头塔资料、结合苏联酒杯塔照片自行设计而成——“506 工程”的标志性成果。",
+      "source": {
+        "verified": true,
+        "line": "松东李线（丰满—东陵—李石寨，新中国首条 220kV，酒杯塔）/ 平武线（首条 500kV）"
+      }
+    },
+    {
+      "id": "stem110",
+      "name": "干字型耐张塔",
+      "shape": "stem",
+      "voltage": "110–500kV",
+      "circuit": "单回",
+      "func": "耐张/转角",
+      "code": "干字/J",
+      "ranges": {
+        "hCall": {
+          "text": "18–40",
+          "min": 18,
+          "max": 40,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "26–55",
+          "min": 26,
+          "max": 55,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "5–12",
+          "min": 5,
+          "max": 12,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "同电压等级",
+        "bundle": 1,
+        "bundleSource": "manual",
+        "bundleNote": "110kV 常规单导线",
+        "gw": "2根",
+        "insulator": "耐张串(水平/耐张)",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "5–15 mm",
+        "weight": "较直线塔重 1.3–1.8 倍",
+        "spanH": "锚塔"
+      },
+      "render": {
+        "height": 45,
+        "rootOpen": 10,
+        "arrangement": "等腰三角(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "耐张/转角/分段",
+      "desc": "形如\"干\"，导线等腰三角形，受力清晰经济，各电压等级耐张/转角塔通用。",
+      "source": {
+        "verified": false,
+        "line": "各电压等级耐张/转角通用（如平武线、皖电东送）"
+      }
+    },
+    {
+      "id": "portal220",
+      "name": "门型双回直线塔",
+      "shape": "portal",
+      "voltage": "220kV",
+      "circuit": "双回",
+      "func": "直线",
+      "code": "门型/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "18–26",
+          "min": 18,
+          "max": 26,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "24–34",
+          "min": 24,
+          "max": 34,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "8–12(柱距)",
+          "min": 8,
+          "max": 12,
+          "note": "柱距",
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2回路×3相",
+        "bundle": null,
+        "bundleSource": "unknown",
+        "bundleNote": "原文「2回路×3相」未给分裂数，三维按 1 分裂示意",
+        "gw": "2根",
+        "insulator": "悬垂串",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "5–10 mm",
+        "weight": "10–20",
+        "spanH": "300–450"
+      },
+      "render": {
+        "height": 30,
+        "rootOpen": 11,
+        "arrangement": "双回(门型)",
+        "callBasis": "hCall"
+      },
+      "apply": "城市/出线受限",
+      "desc": "双柱门形，顶部横梁挂双回导线，占地小、走廊窄，城市及出线受限处常用。",
+      "source": {
+        "verified": false,
+        "line": "城市220kV双回出线（门型塔典型）"
+      }
+    },
+    {
+      "id": "drum220",
+      "name": "鼓型同塔双回塔(220kV)",
+      "shape": "drum",
+      "voltage": "220kV",
+      "circuit": "双回",
+      "func": "直线",
+      "code": "鼓型/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "21–36",
+          "min": 21,
+          "max": 36,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "32–52",
+          "min": 32,
+          "max": 52,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "7–12",
+          "min": 7,
+          "max": 12,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2回路×3相 2×LGJ-300/40～2×LGJ-400/35",
+        "bundle": 2,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(JLB/OPGW)",
+        "insulator": "悬垂 I/V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "5–15 mm",
+        "weight": "14–29",
+        "spanH": "300–500"
+      },
+      "render": {
+        "height": 45,
+        "rootOpen": 10,
+        "arrangement": "垂直6线(双回)",
+        "callBasis": "hCall"
+      },
+      "apply": "走廊紧张城区/城郊",
+      "desc": "220kV 同塔双回鼓型塔，三层横担垂直排列，中横担外凸。国家电网通用设计 2E/2F/2J 子模块，呼高21–36m、单基塔重14.3–28.7t（✓已校验）。",
+      "source": {
+        "verified": true,
+        "line": "220kV同塔双回鼓型（国家电网通用设计2E/2F/2J模块）"
+      }
+    },
+    {
+      "id": "drum500",
+      "name": "鼓型同塔双回塔",
+      "shape": "drum",
+      "voltage": "500kV",
+      "circuit": "双回",
+      "func": "直线",
+      "code": "鼓型/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "33–45",
+          "min": 33,
+          "max": 45,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "50–70",
+          "min": 50,
+          "max": 70,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "10–16",
+          "min": 10,
+          "max": 16,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2回路×3相(6根) 4×LGJ-400/35",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 III/V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "5–10 mm",
+        "weight": "30–60(常规)/20–28(紧凑型)",
+        "spanH": "400–600"
+      },
+      "render": {
+        "height": 60,
+        "rootOpen": 14,
+        "arrangement": "垂直6线(双回)",
+        "callBasis": "hCall"
+      },
+      "apply": "走廊紧张城区",
+      "desc": "500kV 同塔双回鼓型塔，三层横担垂直排列，中横担明显外凸。常规鼓型呼高36m/全高64m/塔重30.6t；紧凑型呼高33m/全高41m/塔重20.44t（✓已校验）。",
+      "source": {
+        "verified": true,
+        "line": "500kV同塔双回鼓型（常规/紧凑型）"
+      }
+    },
+    {
+      "id": "cup750",
+      "name": "酒杯型直线塔(750kV)",
+      "shape": "cup",
+      "voltage": "750kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "酒杯/ZB·ZBC",
+      "ranges": {
+        "hCall": {
+          "text": "33–60",
+          "min": 33,
+          "max": 60,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "55–100",
+          "min": 55,
+          "max": 100,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "13–22",
+          "min": 13,
+          "max": 22,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "6×LGJ-400/50（分裂间距400mm）",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 多串",
+        "insulatorType": "II",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "5–15 mm",
+        "weight": "60–230",
+        "spanH": "450–700"
+      },
+      "render": {
+        "height": 70,
+        "rootOpen": 18,
+        "arrangement": "水平6分裂(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "西北750kV主干",
+      "desc": "750kV 单回酒杯塔，导线 6 分裂水平排列，国网通用设计含 ZB1–ZB4、ZBC1–ZBC4 共 8 种。呼高 33–60m（西安东 750kV 环评：7A1-ZBC1 呼高 33–48、ZBC4 33–60）；常规塔全高约 63m/塔重 61t，大跨越塔可达 140m/224t。国网 2024 年对 750kV PG22D 模块 ZB1 直线酒杯塔开展真型试验。",
+      "source": {
+        "verified": true,
+        "line": "官亭—兰州东线（中国首条 750kV）/ 国网 750kV 通用设计 7A1-ZB·ZBC 系列"
+      }
+    },
+    {
+      "id": "cat1000",
+      "name": "猫头型直线塔(1000kV)",
+      "shape": "cat",
+      "voltage": "1000kV 交流",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "猫头/ZM",
+      "ranges": {
+        "hCall": {
+          "text": "50–66",
+          "min": 50,
+          "max": 66,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "70–90",
+          "min": 70,
+          "max": 90,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "17–22",
+          "min": 17,
+          "max": 22,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "8×LGJ-500/35",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "JLB20A-170 + OPGW-175",
+        "insulator": "边相 I 串 / 中相 V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": "边相 I 串 / 中相 V 串，三维统一按 V 串示意",
+        "wind": "30 m/s",
+        "ice": "10 mm",
+        "weight": "72.0（真型试验塔）",
+        "spanH": "水平460"
+      },
+      "render": {
+        "height": 77,
+        "rootOpen": 19,
+        "arrangement": "三角8分裂(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "单回特高压·三角排列降不平衡度",
+      "desc": "1000kV 单回猫头塔，三角排列降低线路不平衡度。国网武汉高压研究院 2006 年完成国内首次 1000kV 猫头塔真型试验：塔高 77.0m、塔重 72.0t、塔腿及横担主材采用 Q420 高强钢，用于晋东南—南阳—荆门工程的边相 I 串/中相 V 串验证。",
+      "source": {
+        "verified": true,
+        "line": "晋东南—南阳—荆门（首条 1000kV 交流，单回）/ 1000kV 猫头塔真型试验塔"
+      }
+    },
+    {
+      "id": "cup1000",
+      "name": "酒杯型直线塔(1000kV)",
+      "shape": "cup",
+      "voltage": "1000kV 交流",
+      "circuit": "单回/双回",
+      "func": "直线",
+      "code": "酒杯/ZBS·SZT",
+      "ranges": {
+        "hCall": {
+          "text": "45–81",
+          "min": 45,
+          "max": 81,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "64–110",
+          "min": 64,
+          "max": 110,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "14–20",
+          "min": 14,
+          "max": 20,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "8×LGJ-500/35（晋东南）～8×LGJ-630/45（皖电东送）",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根 / OPGW",
+        "insulator": "悬垂 I/V 串，中相 V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": "悬垂 I/V 串，中相 V 串，三维统一按 V 串示意",
+        "wind": "30 m/s",
+        "ice": "10–15 mm",
+        "weight": "132（SZT2）/ 150.8（皖电东送 K47 塔）",
+        "spanH": "水平510/垂直720"
+      },
+      "render": {
+        "height": 100,
+        "rootOpen": 17,
+        "arrangement": "水平8分裂(单回/双回)",
+        "callBasis": "hCall"
+      },
+      "apply": "特高压交流主力直线塔",
+      "desc": "1000kV 应用最广的直线塔。晋东南—南阳—荆门：单回酒杯型角钢塔，塔高 64.64m/呼高 57m/横担 12.85m/水平档距 460m，8×LGJ-500/35。皖电东送淮南—上海（我国首个同塔双回特高压交流）：SZT2 直线钢管塔全高 93.6m/呼高 48m/塔重 132t（中国电科院真型试验），K47 塔全高 103.6m/重 150.8t。通用设计 ZBS1~ZBS5 呼高覆盖 45–81m。",
+      "source": {
+        "verified": true,
+        "line": "晋东南—南阳—荆门（单回）/ 皖电东送淮南—上海（同塔双回）"
+      }
+    },
+    {
+      "id": "stem1000",
+      "name": "干字型耐张/转角塔(1000kV)",
+      "shape": "stem",
+      "voltage": "1000kV 交流",
+      "circuit": "单回/双回",
+      "func": "耐张/转角",
+      "code": "干字/J",
+      "ranges": {
+        "hCall": {
+          "text": "45–60",
+          "min": 45,
+          "max": 60,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "90–110",
+          "min": 90,
+          "max": 110,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "18–24",
+          "min": 18,
+          "max": 24,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "8×LGJ-630/45",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "30 m/s",
+        "ice": "10 mm",
+        "weight": "234.08",
+        "spanH": "锚塔"
+      },
+      "render": {
+        "height": 101,
+        "rootOpen": 22.272,
+        "arrangement": "干字8分裂(耐张)",
+        "callBasis": "hCall"
+      },
+      "apply": "耐张/转角",
+      "desc": "1000kV 同塔双回钢管耐张/转角塔。SJ301：呼高45/全高101/根开22.272/塔重234.08t，钢管对焊锻造法兰（✓已校验）。",
+      "source": {
+        "verified": true,
+        "line": "皖电东送（淮南—上海）·钢管耐张塔 SJ301"
+      }
+    },
+    {
+      "id": "drum1000",
+      "name": "鼓型同塔双回塔(1000kV)",
+      "shape": "drum",
+      "voltage": "1000kV 交流",
+      "circuit": "双回",
+      "func": "直线",
+      "code": "鼓型/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "48–60",
+          "min": 48,
+          "max": 60,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "90–110",
+          "min": 90,
+          "max": 110,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "18–24",
+          "min": 18,
+          "max": 24,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "8×LGJ-630/45（双回 6 相共 48 根子导线）",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 III/V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "30 m/s",
+        "ice": "10 mm",
+        "weight": "250–400",
+        "spanH": "400–600"
+      },
+      "render": {
+        "height": 100,
+        "rootOpen": 20,
+        "arrangement": "双回6相×8分裂(48根子导线)",
+        "callBasis": "hCall"
+      },
+      "apply": "走廊极度紧张",
+      "desc": "1000kV 同塔双回鼓型塔，三层横担、6 相 8 分裂，共 48 根子导线（2 回 × 3 相 × 8 分裂），集约走廊。根开/塔重等部分尺寸未公开，3D 模型按通用设计比例示意。",
+      "source": {
+        "verified": false,
+        "line": "1000kV 同塔双回线路（走廊受限段）"
+      }
+    },
+    {
+      "id": "stem800",
+      "name": "干字型直流直线塔(±800kV)",
+      "shape": "stem",
+      "voltage": "±800kV 直流",
+      "circuit": "单回(双极)",
+      "func": "直线",
+      "code": "干字/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "38–52",
+          "min": 38,
+          "max": 52,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "55–75",
+          "min": 55,
+          "max": 75,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "14–20",
+          "min": 14,
+          "max": 20,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "双极 6×LGJ-630/45",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(含OPGW)",
+        "insulator": "直流悬垂/耐张(300/550kN)",
+        "insulatorType": "I",
+        "insulatorTypeSource": "manual",
+        "insulatorNote": "直线段为悬垂串；同一塔型族另含耐张串",
+        "wind": "27–32 m/s",
+        "ice": "10 mm",
+        "weight": "100–200",
+        "spanH": "400–600"
+      },
+      "render": {
+        "height": 65,
+        "rootOpen": 16,
+        "arrangement": "双极(干字)",
+        "callBasis": "hCall"
+      },
+      "apply": "直流特高压单回双极",
+      "desc": "±800kV 直流常用干字型，双极导线呈\"干\"字布置，耐张/直线通用，输送容量 800 万千瓦。",
+      "source": {
+        "verified": false,
+        "line": "云广/向上/锦苏等±800kV直流（干字型直线塔）"
+      }
+    },
+    {
+      "id": "ram800",
+      "name": "羊角型直流耐张塔(±800kV)",
+      "shape": "ramhorn",
+      "voltage": "±800kV 直流",
+      "circuit": "单回(双极)",
+      "func": "耐张/转角",
+      "code": "羊角/J",
+      "ranges": {
+        "hCall": {
+          "text": "40–55",
+          "min": 40,
+          "max": 55,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "60–80",
+          "min": 60,
+          "max": 80,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "15–21",
+          "min": 15,
+          "max": 21,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "双极",
+        "bundle": null,
+        "bundleSource": "unknown",
+        "bundleNote": "原文「双极」未给分裂数，三维按 1 分裂示意",
+        "gw": "2根",
+        "insulator": "直流耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "10 mm",
+        "weight": "150–250",
+        "spanH": "锚塔"
+      },
+      "render": {
+        "height": 70,
+        "rootOpen": 17,
+        "arrangement": "双极(羊角)",
+        "callBasis": "hCall"
+      },
+      "apply": "直流耐张/转角",
+      "desc": "塔头呈羊角状，双极导线一个水平面，多用于直流耐张转角塔，受力清晰可通用。",
+      "source": {
+        "verified": false,
+        "line": "±800kV直流耐张转角（羊角型，如向上/锦苏工程）"
+      }
+    },
+    {
+      "id": "stem1100",
+      "name": "干字型直流塔(±1100kV)",
+      "shape": "stem",
+      "voltage": "±1100kV 直流",
+      "circuit": "单回(双极)",
+      "func": "直线/耐张",
+      "code": "干字/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "60–93",
+          "min": 60,
+          "max": 93,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "80–130",
+          "min": 80,
+          "max": 130,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "16–22",
+          "min": 16,
+          "max": 22,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "双极各 8×大截面（单根直径≈5cm）",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "直流复合/瓷(550kN)",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "10 mm",
+        "weight": "新疆段均187 / 陕西段均145 / 最重491",
+        "spanH": "平均560"
+      },
+      "render": {
+        "height": 110,
+        "rootOpen": 20,
+        "arrangement": "双极8根(干字)",
+        "callBasis": "hCall"
+      },
+      "apply": "昌吉—古泉等",
+      "desc": "±1100kV 世界最高直流电压等级。昌吉—古泉：新疆段均高近 80m、均重 187t、最高 110m、最重 491t；陕西段塔材均重 145t、最重 324.79t、最高 130m。每极 8 根导线、单根直径近 5cm，输送容量 1200 万千瓦，经济输电距离 3000–5000km。",
+      "source": {
+        "verified": true,
+        "line": "昌吉—古泉（准东—皖南，3324km）"
+      }
+    },
+    {
+      "id": "ram1100",
+      "name": "羊角型直流塔(±1100kV)",
+      "shape": "ramhorn",
+      "voltage": "±1100kV 直流",
+      "circuit": "单回(双极)",
+      "func": "耐张/转角",
+      "code": "羊角/J",
+      "ranges": {
+        "hCall": {
+          "text": "60–90",
+          "min": 60,
+          "max": 90,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "85–120",
+          "min": 85,
+          "max": 120,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "16–22",
+          "min": 16,
+          "max": 22,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "双极",
+        "bundle": null,
+        "bundleSource": "unknown",
+        "bundleNote": "原文「双极」未给分裂数，三维按 1 分裂示意",
+        "gw": "2根",
+        "insulator": "直流耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "10 mm",
+        "weight": "180–300",
+        "spanH": "锚塔"
+      },
+      "render": {
+        "height": 100,
+        "rootOpen": 20,
+        "arrangement": "双极(羊角)",
+        "callBasis": "hCall"
+      },
+      "apply": "直流耐张/转角",
+      "desc": "±1100kV 直流耐张转角采用羊角型，双极水平布置，塔头羊角状。",
+      "source": {
+        "verified": false,
+        "line": "昌吉—古泉（准东—皖南）·耐张转角"
+      }
+    },
+    {
+      "id": "cross1100",
+      "name": "长江大跨越塔(±1100kV)",
+      "shape": "portal",
+      "voltage": "±1100kV 直流",
+      "circuit": "单回(双极)",
+      "func": "跨越",
+      "code": "跨越塔(展翅型)",
+      "ranges": {
+        "hCall": {
+          "text": "223",
+          "min": 223,
+          "max": 223,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "225.2",
+          "min": 225.2,
+          "max": 225.2,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "45",
+          "min": 45,
+          "max": 45,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "6×JLHA1/G4A-900/240（六分裂特强钢芯铝合金绞线）",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根 OPGW-300",
+        "insulator": "悬垂 2×4联550kN / 耐张 8联550kN",
+        "insulatorType": "I",
+        "insulatorTypeSource": "manual",
+        "insulatorNote": "跨越塔本体为直线塔（悬垂串），耐张串用于两侧锚塔",
+        "wind": "—",
+        "ice": "—",
+        "weight": "1259",
+        "spanH": "跨越档1790 / 耐张段2900"
+      },
+      "render": {
+        "height": 225.2,
+        "rootOpen": 45,
+        "arrangement": "双极大跨越(六分裂)",
+        "callBasis": "hCall"
+      },
+      "apply": "昌吉—古泉长江大跨越",
+      "desc": "世界最高电压等级大跨越。展翅型钢管塔：呼高 223m、全高 225.2m、基础根开 45m、单基塔重 1259t，最大单管 Φ1100×28mm，导线横担与地线顶架连体（全长 29.2m、单侧重 41.11t），故呼高≈全高。跨越方式“耐-直-直-耐”，基础为钻孔灌注桩，单基 48 根主桩、桩长 52m。",
+      "source": {
+        "verified": true,
+        "line": "昌吉—古泉长江大跨越（南/北跨越塔）"
+      }
+    },
+    {
+      "id": "stem400",
+      "name": "干字型直流直线塔(±400kV)",
+      "shape": "stem",
+      "voltage": "±400kV 直流",
+      "circuit": "单回(双极)",
+      "func": "直线",
+      "code": "干字/ZV52",
+      "ranges": {
+        "hCall": {
+          "text": "~35",
+          "min": 35,
+          "max": 35,
+          "note": null,
+          "approx": true,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "42",
+          "min": 42,
+          "max": 42,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "约10–14",
+          "min": 10,
+          "max": 14,
+          "note": null,
+          "approx": true,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "每极 4×LGJ-400/35",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "直流双V悬垂串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "31.5 m/s",
+        "ice": "10 mm",
+        "weight": "~20–25",
+        "spanH": "水平550/垂直900"
+      },
+      "render": {
+        "height": 42,
+        "rootOpen": 12,
+        "arrangement": "双极(干字±400)",
+        "callBasis": "hCall"
+      },
+      "apply": "青—藏直流主干",
+      "desc": "±400kV 直线塔 ZV52，双\"V\"串、高低腿设计，全高42m、设计风速31.5m/s、覆冰10mm（✓已校验，中国电科院真型试验）。",
+      "source": {
+        "verified": true,
+        "line": "青藏直流（格尔木—拉萨）·ZV52"
+      }
+    },
+    {
+      "id": "ram400",
+      "name": "干字型直流耐张/转角塔(±400kV)",
+      "shape": "stem",
+      "voltage": "±400kV 直流",
+      "circuit": "单回(双极)",
+      "func": "耐张/转角",
+      "code": "干字/J81",
+      "ranges": {
+        "hCall": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "33",
+          "min": 33,
+          "max": 33,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "每极 4×LGJ-400/35",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "直流耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "34 m/s",
+        "ice": "10 mm",
+        "weight": "—",
+        "spanH": "水平350/垂直600"
+      },
+      "render": {
+        "height": 33,
+        "rootOpen": 10,
+        "arrangement": "双极(干字±400)",
+        "callBasis": "attachment"
+      },
+      "apply": "转角/耐张",
+      "desc": "青藏直流 J81 转角塔。中国电科院真型试验原文：“J81 型转角塔采用标准干字型结构，铁塔高 33 米，最大设计风速 34 米/秒，设计覆冰厚度 10 毫米，设计水平档距 350 米，垂直档距 600 米。”注意：塔型为干字型，并非羊角型。",
+      "source": {
+        "verified": true,
+        "line": "青藏直流（格尔木—拉萨，1038km）·J81"
+      }
+    },
+    {
+      "id": "stem660",
+      "name": "干字型直流直线塔(±660kV)",
+      "shape": "stem",
+      "voltage": "±660kV 直流",
+      "circuit": "单回(双极)",
+      "func": "直线",
+      "code": "干字/ZC3044",
+      "ranges": {
+        "hCall": {
+          "text": "≤63",
+          "min": null,
+          "max": 63,
+          "note": null,
+          "approx": false,
+          "openEnded": "upper"
+        },
+        "hTotal": {
+          "text": "54.5–69.5（一般段）",
+          "min": 54.5,
+          "max": 69.5,
+          "note": "一般段",
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "约14–20",
+          "min": 14,
+          "max": 20,
+          "note": null,
+          "approx": true,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "4×JL/G3A-1000/45（世界首次应用 1000mm² 大截面导线）",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(含OPGW)",
+        "insulator": "直流悬垂/耐张(420kN级)",
+        "insulatorType": "I",
+        "insulatorTypeSource": "manual",
+        "insulatorNote": "一般段为悬垂串；同一塔型族另含耐张串",
+        "wind": "约30–34 m/s",
+        "ice": "10 mm",
+        "weight": "一般段 26.8–54.8 / 跨越塔 249.5",
+        "spanH": "水平550/垂直900"
+      },
+      "render": {
+        "height": 69.5,
+        "rootOpen": 18,
+        "arrangement": "双极(干字±660)",
+        "callBasis": "hCall"
+      },
+      "apply": "宁东—山东直流主干",
+      "desc": "±660kV 干字型直线塔，世界首个 ±660kV 直流工程（银川东—青岛，1335km）。极导线 4×JL/G3A-1000/45，1000mm² 大截面导线为世界首次工程应用。一般段 ZC3044：呼高 63m/全高 69.5m/塔重 54.8t；黄河大跨越直线塔：呼高 112m/全高 122.5m/重 249.5t。",
+      "source": {
+        "verified": true,
+        "line": "宁东—山东（银川东—青岛，1335km）·ZC3044"
+      }
+    },
+    {
+      "id": "ram660",
+      "name": "羊角型直流耐张塔(±660kV)",
+      "shape": "ramhorn",
+      "voltage": "±660kV 直流",
+      "circuit": "单回(双极)",
+      "func": "耐张/转角",
+      "code": "羊角/JC3041",
+      "ranges": {
+        "hCall": {
+          "text": "42",
+          "min": 42,
+          "max": 42,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "54",
+          "min": 54,
+          "max": 54,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "约14–18",
+          "min": 14,
+          "max": 18,
+          "note": null,
+          "approx": true,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "4×JL/G3A-1000/45",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "直流耐张串(420kN)",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "约34 m/s",
+        "ice": "10 mm",
+        "weight": "54.5",
+        "spanH": "水平350/垂直600"
+      },
+      "render": {
+        "height": 54,
+        "rootOpen": 16,
+        "arrangement": "双极(羊角±660)",
+        "callBasis": "hCall"
+      },
+      "apply": "转角/耐张",
+      "desc": "±660kV 转角耐张塔，宁东—山东工程 JC3041：呼高 42m/全高 54m/塔重 54.5t，极导线 4×JL/G3A-1000/45（世界首次 1000mm² 大截面）。",
+      "source": {
+        "verified": true,
+        "line": "宁东—山东（银川东—青岛）·JC3041"
+      }
+    },
+    {
+      "id": "transpos",
+      "name": "换位塔",
+      "shape": "cup",
+      "voltage": "各等级",
+      "circuit": "单回",
+      "func": "换位",
+      "code": "换位/SJ",
+      "ranges": {
+        "hCall": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "同电压等级",
+        "bundle": null,
+        "bundleSource": "unknown",
+        "bundleNote": "换位塔分裂数随线路，三维按 1 分裂示意",
+        "gw": "同电压等级",
+        "insulator": "悬垂/耐张",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": "换位塔悬垂/耐张混用，三维按耐张串示意",
+        "wind": "同线路",
+        "ice": "同线路",
+        "weight": "略重",
+        "spanH": "—"
+      },
+      "render": {
+        "height": 60,
+        "rootOpen": 14,
+        "arrangement": "换位布置",
+        "callBasis": "attachment"
+      },
+      "apply": "长线路三相平衡",
+      "desc": "长线路导线换位以平衡三相阻抗与不对称电流，塔头设换位横担，结构在耐张/直线塔基础上加换位功能。",
+      "source": {
+        "verified": false,
+        "line": "长线路三相平衡（同塔多回/特高压长线换位）"
+      }
+    },
+    {
+      "id": "terminal",
+      "name": "终端塔",
+      "shape": "stem",
+      "voltage": "各等级",
+      "circuit": "单/双回",
+      "func": "终端",
+      "code": "终端/J",
+      "ranges": {
+        "hCall": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "同电压等级",
+        "bundle": null,
+        "bundleSource": "unknown",
+        "bundleNote": "终端塔分裂数随线路，三维按 1 分裂示意",
+        "gw": "同电压等级",
+        "insulator": "耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "同线路",
+        "ice": "同线路",
+        "weight": "较重",
+        "spanH": "—"
+      },
+      "render": {
+        "height": 50,
+        "rootOpen": 12,
+        "arrangement": "终端布置",
+        "callBasis": "attachment"
+      },
+      "apply": "线路进出变电站",
+      "desc": "线路进入变电站的末端耐张塔，承受导线/地线全部张力（仅单侧挂线），是线路与变电站的衔接点。",
+      "source": {
+        "verified": false,
+        "line": "线路进出变电站末端塔（各电压等级）"
+      }
+    },
+    {
+      "id": "cup330",
+      "name": "酒杯型直线塔(330kV)",
+      "shape": "cup",
+      "voltage": "330kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "酒杯/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "28–42",
+          "min": 28,
+          "max": 42,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "40–60",
+          "min": 40,
+          "max": 60,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "9–14",
+          "min": 9,
+          "max": 14,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2×LGJ-400/35",
+        "bundle": 2,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 多片",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "5–10 mm",
+        "weight": "15–40",
+        "spanH": "350–550"
+      },
+      "render": {
+        "height": 50,
+        "rootOpen": 12,
+        "arrangement": "水平2分裂(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "西北330kV电网",
+      "desc": "西北电网特有 330kV，酒杯/猫头/干字型，导线 2 分裂，是超高压与高压间的过渡电压等级。",
+      "source": {
+        "verified": false,
+        "line": "刘天关线（刘家峡—天水—关中，首条330kV）"
+      }
+    },
+    {
+      "id": "cat330",
+      "name": "猫头型直线塔(330kV)",
+      "shape": "cat",
+      "voltage": "330kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "猫头/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "30–44",
+          "min": 30,
+          "max": 44,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "42–62",
+          "min": 42,
+          "max": 62,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "9–14",
+          "min": 9,
+          "max": 14,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "2×LGJ-400/35",
+        "bundle": 2,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 多片",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "5–10 mm",
+        "weight": "16–42",
+        "spanH": "350–550"
+      },
+      "render": {
+        "height": 48,
+        "rootOpen": 11,
+        "arrangement": "三角2分裂(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "西北330kV电网",
+      "desc": "330kV 猫头型，三角排列省走廊，西北电网主干塔型之一。",
+      "source": {
+        "verified": false,
+        "line": "刘天关线（刘家峡—天水—关中，首条330kV）"
+      }
+    },
+    {
+      "id": "cat750",
+      "name": "猫头型直线塔(750kV)",
+      "shape": "cat",
+      "voltage": "750kV",
+      "circuit": "单回",
+      "func": "直线",
+      "code": "猫头/ZM1·ZM2·ZMK",
+      "ranges": {
+        "hCall": {
+          "text": "30–50",
+          "min": 30,
+          "max": 50,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "45–70",
+          "min": 45,
+          "max": 70,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "10–18",
+          "min": 10,
+          "max": 18,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "6×LGJ-400/50（分裂间距400mm）",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 多串",
+        "insulatorType": "II",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–32 m/s",
+        "ice": "5–15 mm",
+        "weight": "45–90",
+        "spanH": "450–650"
+      },
+      "render": {
+        "height": 62,
+        "rootOpen": 15,
+        "arrangement": "三角6分裂(单回)",
+        "callBasis": "hCall"
+      },
+      "apply": "西北750kV·省走廊段",
+      "desc": "750kV 猫头塔确实存在：国网 750kV 通用设计含 7A1-ZM1、7A1-ZM2、ZMK 三种单回路猫头塔，陕西西安南/西安东、宁夏沙湖 750kV 等工程环评文件均明确列出。导线 6×LGJ-400/50、分裂间距 400mm。猫头塔三角排列、塔重较轻，适用于无冰区。",
+      "source": {
+        "verified": true,
+        "line": "750kV 通用设计 7A1-ZM1/ZM2/ZMK（西安南、西安东、沙湖 750kV 等）"
+      }
+    },
+    {
+      "id": "drum500vh",
+      "name": "鼓型同塔双回直流塔(±500kV柔直)",
+      "shape": "drum",
+      "voltage": "±500kV 直流(柔直)",
+      "circuit": "双回",
+      "func": "直线/耐张",
+      "code": "鼓型/SZ",
+      "ranges": {
+        "hCall": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "4×JL/G2A-720/50（极导线，分裂间距500mm）",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根(双回段72芯OPGW)",
+        "insulator": "直流 V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": "直线/耐张混用，三维按 V 串示意",
+        "wind": "27(双回段)/29(单回段) m/s",
+        "ice": "10 mm",
+        "weight": "—",
+        "spanH": "—"
+      },
+      "render": {
+        "height": 62,
+        "rootOpen": 14,
+        "arrangement": "双回(含金属回线)",
+        "callBasis": "attachment"
+      },
+      "apply": "张北柔直·走廊紧张",
+      "desc": "张北柔直 ±500kV 四端环网，采用“单双回路混合架设 + 金属回流线与极导线同塔并架”。直流架空线路 217.5km，其中单回 184.6km、与丰宁/北京同塔架设 32.4km。双极输送容量 3000MW，直流电流按 3kA 设计。注意：并非“三回同塔”。",
+      "source": {
+        "verified": true,
+        "line": "张北柔性直流电网（±500kV 四端环网）·张北/康保/丰宁/北京"
+      }
+    },
+    {
+      "id": "drum750",
+      "name": "鼓型同塔双回塔(750kV)",
+      "shape": "drum",
+      "voltage": "750kV",
+      "circuit": "双回",
+      "func": "直线",
+      "code": "鼓型/7D1-SZ·SZC",
+      "ranges": {
+        "hCall": {
+          "text": "33–51",
+          "min": 33,
+          "max": 51,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "6×LGJ-400/50（分裂间距400mm）",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "悬垂 III/V 串",
+        "insulatorType": "V",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "10 mm",
+        "weight": "—",
+        "spanH": "水平650/垂直850"
+      },
+      "render": {
+        "height": 66,
+        "rootOpen": 14,
+        "arrangement": "垂直6相(双回)",
+        "callBasis": "hCall"
+      },
+      "apply": "750kV 同塔双回·走廊紧张",
+      "desc": "750kV 双回路直线塔采用同塔双回垂直排列的鼓型塔，国网通用设计含 7D1-SZ1~SZC4 系列。陕西西安东 750kV 环评：7D1-SZC2 呼高 33–51m、水平档距 650m、垂直档距 850m；沙湖 750kV：同塔双回路段约 2×104km、导线 6×LGJ-400/50。根开/全高/塔重未公开，3D 按通用设计比例示意。",
+      "source": {
+        "verified": true,
+        "line": "国网通用设计 750kV 7D1 双回鼓型塔（西安南/西安东/沙湖 750kV）"
+      }
+    },
+    {
+      "id": "stem750",
+      "name": "干字型耐张/转角塔(750kV)",
+      "shape": "stem",
+      "voltage": "750kV",
+      "circuit": "单回",
+      "func": "耐张/转角",
+      "code": "干字/7A1-J·JC",
+      "ranges": {
+        "hCall": {
+          "text": "27–42",
+          "min": 27,
+          "max": 42,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "6×LGJ-400/50",
+        "bundle": 6,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "27–30 m/s",
+        "ice": "10 mm",
+        "weight": "—",
+        "spanH": "水平600/垂直850"
+      },
+      "render": {
+        "height": 58,
+        "rootOpen": 13,
+        "arrangement": "干字6分裂(耐张)",
+        "callBasis": "hCall"
+      },
+      "apply": "750kV 耐张/转角",
+      "desc": "750kV 单回路耐张塔均采用干字型塔（陕西西安东 750kV 环评明确：“单回路直线塔采用酒杯型塔，单回路耐张塔均采用干字型塔”）。通用设计含 7A1-J1~J4、7A1-JC1~JC4；7A1-JC1 呼高 27–42m、水平档距 600m、垂直档距 850m、允许转角 20°–40°。",
+      "source": {
+        "verified": true,
+        "line": "750kV 单回路耐张塔（国网通用设计 7A1-J/JC 系列）"
+      }
+    },
+    {
+      "id": "cross1000",
+      "name": "长江大跨越塔(1000kV交流)",
+      "shape": "portal",
+      "voltage": "1000kV 交流",
+      "circuit": "双回",
+      "func": "跨越",
+      "code": "跨越塔",
+      "ranges": {
+        "hCall": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "277.5",
+          "min": 277.5,
+          "max": 277.5,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "8×LGJ-630/45（跨越段 6 分裂）",
+        "bundle": 8,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "大跨越耐张串",
+        "insulatorType": "T",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "—",
+        "ice": "—",
+        "weight": "2650",
+        "spanH": "跨越约3000"
+      },
+      "render": {
+        "height": 277.5,
+        "rootOpen": 52,
+        "arrangement": "双回大跨越",
+        "callBasis": "attachment"
+      },
+      "apply": "皖电东送长江大跨越",
+      "desc": "皖电东送淮南—上海 1000kV 长江大跨越，南/北两基跨越塔为当时“我国特高压第一塔”：单塔高 277.5m、单基重 2650t、跨越长江约 3km，全部 36 根导线一次牵引跨越，施工中启用直升机辅助。根开/呼高未公开，3D 按比例示意。",
+      "source": {
+        "verified": true,
+        "line": "皖电东送（淮南—上海）长江大跨越"
+      }
+    },
+    {
+      "id": "cross660",
+      "name": "黄河大跨越塔(±660kV)",
+      "shape": "portal",
+      "voltage": "±660kV 直流",
+      "circuit": "单回(双极)",
+      "func": "跨越",
+      "code": "跨越塔(钢管)",
+      "ranges": {
+        "hCall": {
+          "text": "112",
+          "min": 112,
+          "max": 112,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "hTotal": {
+          "text": "122.5",
+          "min": 122.5,
+          "max": 122.5,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        },
+        "rootOpen": {
+          "text": "—",
+          "min": null,
+          "max": null,
+          "note": null,
+          "approx": false,
+          "openEnded": null
+        }
+      },
+      "spec": {
+        "conductor": "4×JL/G3A-1000/45",
+        "bundle": 4,
+        "bundleSource": "text",
+        "bundleNote": null,
+        "gw": "2根",
+        "insulator": "直流大跨越串",
+        "insulatorType": "I",
+        "insulatorTypeSource": "text",
+        "insulatorNote": null,
+        "wind": "—",
+        "ice": "—",
+        "weight": "249.5",
+        "spanH": "最大单跨1240 / 耐张段3249"
+      },
+      "render": {
+        "height": 122.5,
+        "rootOpen": 22,
+        "arrangement": "双极大跨越(四分裂)",
+        "callBasis": "hCall"
+      },
+      "apply": "宁东—山东 黄河大跨越",
+      "desc": "宁东—山东 ±660kV 黄河大跨越：耐张段 3249m、最大单跨 1240m，采用“耐-直-直-直-耐”。跨越河面两基直线塔为钢管塔，呼高 112m/全高 122.5m/单基 249.5t，为山东电网首次采用钢管塔；塔基建于离地 8.1m 承台之上，下设 36 根 44m 深承台桩，并设 17 根防撞桩。",
+      "source": {
+        "verified": true,
+        "line": "宁东—山东（银川东—青岛）黄河大跨越"
+      }
+    }
+  ]
+}

@@ -24,6 +24,14 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: 安装校验依赖
+        run: pip install jsonschema
+
+      # 数据集有问题就不能发布：区间文本与数值不一致、三维基准超出数据区间、
+      # 改了 towers.json 忘了重新生成 d_towers.gen.js，都会在这里拦下。
+      - name: 校验塔型数据集
+        run: python assets/data/validate.py
+
       - name: 构建单文件页面
         run: python assets/ui/build_site.py
 

@@ -218,16 +218,30 @@ function deriveData(t){
   else if(/四回/.test(circ)) phases=12;
   else if(/三回/.test(circ)) phases=9;
   else if(/双回/.test(circ)) phases=6;
-  const cs=t.conductor||'';
-  let m=/(\d+)\s*×\s*(?:LGJ|JL|AACSR|JLHA|LGJK)/i.exec(cs);
-  if(!m) m=/(\d+)\s*×/.exec(cs);
-  let bundle=m?parseInt(m[1],10):1;
-  if(bundle>8||bundle<1) bundle=1;
-  const ins=t.insulator||'';
-  let itype='I';
-  if(/耐张/.test(ins)) itype='T';
-  else if(/V/.test(ins)) itype='V';
-  else if(/双|多串|II/.test(ins)) itype='II';
+  // 分裂数与绝缘串型优先取数据里的显式字段（assets/data/towers.json 的 spec.bundle /
+  // spec.insulatorType）。这两个值原来是从中文描述里正则猜的，猜错过：
+  // 「直流悬垂/耐张」被「耐张」抢先命中，把直线塔画成了耐张塔。
+  // 只有老数据缺字段时才回落到文本解析。
+  let bundle;
+  if(typeof t.bundle==='number'&&t.bundle>=1&&t.bundle<=8){
+    bundle=t.bundle;
+  }else{
+    const cs=t.conductor||'';
+    let m=/(\d+)\s*×\s*(?:LGJ|JL|AACSR|JLHA|LGJK)/i.exec(cs);
+    if(!m) m=/(\d+)\s*×/.exec(cs);
+    bundle=m?parseInt(m[1],10):1;
+    if(bundle>8||bundle<1) bundle=1;
+  }
+  let itype;
+  if(t.itype==='I'||t.itype==='V'||t.itype==='II'||t.itype==='T'){
+    itype=t.itype;
+  }else{
+    const ins=t.insulator||'';
+    itype='I';
+    if(/耐张/.test(ins)) itype='T';
+    else if(/V/.test(ins)) itype='V';
+    else if(/双|多串|II/.test(ins)) itype='II';
+  }
   return {isDC,phases,bundle,itype,circ};
 }
 
@@ -552,7 +566,10 @@ function buildTower(t){
   });
 
   flushBatches(g);
-  g.userData={totalHigh:H, callHigh:(isFinite(_minAttach)&&_minAttach>0&&_minAttach<H)?_minAttach:H*0.7, rootOpen:R, condText:t.conductorArr||'', shape:shape};
+  g.userData={totalHigh:H, callHigh:(isFinite(_minAttach)&&_minAttach>0&&_minAttach<H)?_minAttach:H*0.7,
+              rootOpen:R, condText:t.conductorArr||'', shape:shape,
+              // 数据侧是否给出了呼称高（'attachment' = 资料没给，标注只能说「导线挂点」）
+              callBasis:t.callBasis||'hCall'};
   return g;
 }
 
@@ -574,8 +591,10 @@ function addAnnotations(g){
   const topOff=d.shape==='cat'?1.105:1.052;
   labelGroup.add(makeLabel('全高 '+d.totalHigh.toFixed(1)+' m',V(0,d.totalHigh*topOff,0)));
   // 耐张塔/跨越塔/门型塔的导线挂在结构顶部附近，「呼高」会逼近全高（实测 94%~97%），
-  // 与旁边的「全高」自相矛盾。比值超过 0.90 就改称「导线挂点」——数值不变，只是叫法准确了。
-  const callTxt=d.callHigh>d.totalHigh*0.90?'导线挂点':'呼高';
+  // 与旁边的「全高」自相矛盾。两个条件任一成立就改称「导线挂点」——数值不变，只是叫法准确：
+  //   ① 资料本身没给出呼称高（数据侧 render.callBasis = 'attachment'）
+  //   ② 几何算出的挂点高度超过 0.90 全高，这个数就不是呼称高
+  const callTxt=(d.callBasis==='attachment'||d.callHigh>d.totalHigh*0.90)?'导线挂点':'呼高';
   labelGroup.add(makeLabel(callTxt+' '+d.callHigh.toFixed(1)+' m',V(near?-off*1.15:-off,d.callHigh,0),'lbl-call'));
   labelGroup.add(makeLabel('根开 '+d.rootOpen.toFixed(1)+' m',V(d.rootOpen*0.5,1.2,0),'lbl-root'));
   g.add(labelGroup);
@@ -851,6 +870,8 @@ function loadTower(id){
   towerGroup=buildTower(t);
   scene.add(towerGroup);
   addAnnotations(towerGroup);
+  // 供自动化校验读取（assets/data/validate.py --live 与 assets/ui/sweep.py）
+  window.__towerGroup=towerGroup;
   fitCamera(t.ht3d,t.ro3d,t.shape);
   document.getElementById('hud').textContent=t.name;
   document.getElementById('sideName').textContent=t.name;

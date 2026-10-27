@@ -1,3 +1,6 @@
+/* ===================== 塔型数据（自动生成，勿手改） =====================
+   数据源：assets/data/towers.json   生成器：assets/data/gen_towers_js.py
+   要改塔型参数改 JSON，然后重新构建；schema 见 assets/data/towers.schema.json */
 const TOWERS = [
   { id:'shang110', name:'上字型直线塔', shape:'shang', voltage:'110kV', circuit:'单回', func:'直线',
     code:'SZ(上字)', hCall:'12–18', hTotal:'18–26', rootOpen:'3.0–4.0',
@@ -6,6 +9,8 @@ const TOWERS = [
     apply:'轻雷轻冰、导线截面较小线路', desc:'塔顶单避雷线，三相呈不对称三角形（顶相居中、两下相挂横担），结构简单耗钢少，35/110kV 常用。属通用塔型，无单一工程专属。',
     ht3d:22, ro3d:3.5, conductorArr:'不对称三角(单回)', verified:false,
     line:'110kV 单回线路通用塔型（非单一工程专属）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:1, itype:'I', callBasis:'hCall',
   },
 
   { id:'cat110', name:'猫头型直线塔', shape:'cat', voltage:'110–220kV', circuit:'单回', func:'直线',
@@ -15,6 +20,8 @@ const TOWERS = [
     apply:'省走廊、三角排列', desc:'形如猫头：顶部格构横梁两端挂地线，两侧面颊墙下端挂两边相，中相由汇合的 V 形下颌托到"猫鼻"（比两边相更低）——这个"宽顶窄颏"的头部轮廓就是猫头塔的判据。三角排列省走廊、塔重较轻，适用于无冰区。国网新版通用设计 220kV HD22D 模块 ZMC2 即为直线猫头塔，2024 年通过真型试验。',
     ht3d:32, ro3d:6, conductorArr:'三角(单回)', verified:true,
     line:'国网通用设计 220kV HD22D 模块 ZMC2 直线猫头塔',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:2, itype:'I', callBasis:'hCall',
   },
 
   { id:'cup220', name:'酒杯型直线塔', shape:'cup', voltage:'220–500kV', circuit:'单回', func:'直线',
@@ -24,6 +31,8 @@ const TOWERS = [
     apply:'重冰区/多雷区，水平排列', desc:'形如酒杯，三相水平排列、两根避雷线，宽基抗风，重冰/多雷区首选。松东李线（新中国首条 220kV，369km/919 基铁塔）所用酒杯塔即由设计人员参考既有猫头塔资料、结合苏联酒杯塔照片自行设计而成——“506 工程”的标志性成果。',
     ht3d:48, ro3d:11, conductorArr:'水平(单回)', verified:true,
     line:'松东李线（丰满—东陵—李石寨，新中国首条 220kV，酒杯塔）/ 平武线（首条 500kV）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:2, itype:'II', callBasis:'hCall',
   },
 
   { id:'stem110', name:'干字型耐张塔', shape:'stem', voltage:'110–500kV', circuit:'单回', func:'耐张/转角',
@@ -33,6 +42,8 @@ const TOWERS = [
     apply:'耐张/转角/分段', desc:'形如"干"，导线等腰三角形，受力清晰经济，各电压等级耐张/转角塔通用。',
     ht3d:45, ro3d:10, conductorArr:'等腰三角(单回)', verified:false,
     line:'各电压等级耐张/转角通用（如平武线、皖电东送）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:1, itype:'T', callBasis:'hCall',
   },
 
   { id:'portal220', name:'门型双回直线塔', shape:'portal', voltage:'220kV', circuit:'双回', func:'直线',
@@ -42,6 +53,8 @@ const TOWERS = [
     apply:'城市/出线受限', desc:'双柱门形，顶部横梁挂双回导线，占地小、走廊窄，城市及出线受限处常用。',
     ht3d:30, ro3d:11, conductorArr:'双回(门型)', verified:false,
     line:'城市220kV双回出线（门型塔典型）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:null, itype:'I', callBasis:'hCall',
   },
 
   { id:'drum220', name:'鼓型同塔双回塔(220kV)', shape:'drum', voltage:'220kV', circuit:'双回', func:'直线',
@@ -51,6 +64,8 @@ const TOWERS = [
     apply:'走廊紧张城区/城郊', desc:'220kV 同塔双回鼓型塔，三层横担垂直排列，中横担外凸。国家电网通用设计 2E/2F/2J 子模块，呼高21–36m、单基塔重14.3–28.7t（✓已校验）。',
     ht3d:45, ro3d:10, conductorArr:'垂直6线(双回)', verified:true,
     line:'220kV同塔双回鼓型（国家电网通用设计2E/2F/2J模块）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:2, itype:'V', callBasis:'hCall',
   },
 
   { id:'drum500', name:'鼓型同塔双回塔', shape:'drum', voltage:'500kV', circuit:'双回', func:'直线',
@@ -60,6 +75,8 @@ const TOWERS = [
     apply:'走廊紧张城区', desc:'500kV 同塔双回鼓型塔，三层横担垂直排列，中横担明显外凸。常规鼓型呼高36m/全高64m/塔重30.6t；紧凑型呼高33m/全高41m/塔重20.44t（✓已校验）。',
     ht3d:60, ro3d:14, conductorArr:'垂直6线(双回)', verified:true,
     line:'500kV同塔双回鼓型（常规/紧凑型）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'V', callBasis:'hCall',
   },
 
   { id:'cup750', name:'酒杯型直线塔(750kV)', shape:'cup', voltage:'750kV', circuit:'单回', func:'直线',
@@ -69,6 +86,8 @@ const TOWERS = [
     apply:'西北750kV主干', desc:'750kV 单回酒杯塔，导线 6 分裂水平排列，国网通用设计含 ZB1–ZB4、ZBC1–ZBC4 共 8 种。呼高 33–60m（西安东 750kV 环评：7A1-ZBC1 呼高 33–48、ZBC4 33–60）；常规塔全高约 63m/塔重 61t，大跨越塔可达 140m/224t。国网 2024 年对 750kV PG22D 模块 ZB1 直线酒杯塔开展真型试验。',
     ht3d:70, ro3d:18, conductorArr:'水平6分裂(单回)', verified:true,
     line:'官亭—兰州东线（中国首条 750kV）/ 国网 750kV 通用设计 7A1-ZB·ZBC 系列',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'II', callBasis:'hCall',
   },
 
   { id:'cat1000', name:'猫头型直线塔(1000kV)', shape:'cat', voltage:'1000kV 交流', circuit:'单回', func:'直线',
@@ -78,6 +97,8 @@ const TOWERS = [
     apply:'单回特高压·三角排列降不平衡度', desc:'1000kV 单回猫头塔，三角排列降低线路不平衡度。国网武汉高压研究院 2006 年完成国内首次 1000kV 猫头塔真型试验：塔高 77.0m、塔重 72.0t、塔腿及横担主材采用 Q420 高强钢，用于晋东南—南阳—荆门工程的边相 I 串/中相 V 串验证。',
     ht3d:77, ro3d:19, conductorArr:'三角8分裂(单回)', verified:true,
     line:'晋东南—南阳—荆门（首条 1000kV 交流，单回）/ 1000kV 猫头塔真型试验塔',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'V', callBasis:'hCall',
   },
 
   { id:'cup1000', name:'酒杯型直线塔(1000kV)', shape:'cup', voltage:'1000kV 交流', circuit:'单回/双回', func:'直线',
@@ -87,6 +108,8 @@ const TOWERS = [
     apply:'特高压交流主力直线塔', desc:'1000kV 应用最广的直线塔。晋东南—南阳—荆门：单回酒杯型角钢塔，塔高 64.64m/呼高 57m/横担 12.85m/水平档距 460m，8×LGJ-500/35。皖电东送淮南—上海（我国首个同塔双回特高压交流）：SZT2 直线钢管塔全高 93.6m/呼高 48m/塔重 132t（中国电科院真型试验），K47 塔全高 103.6m/重 150.8t。通用设计 ZBS1~ZBS5 呼高覆盖 45–81m。',
     ht3d:100, ro3d:17, conductorArr:'水平8分裂(单回/双回)', verified:true,
     line:'晋东南—南阳—荆门（单回）/ 皖电东送淮南—上海（同塔双回）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'V', callBasis:'hCall',
   },
 
   { id:'stem1000', name:'干字型耐张/转角塔(1000kV)', shape:'stem', voltage:'1000kV 交流', circuit:'单回/双回', func:'耐张/转角',
@@ -96,6 +119,8 @@ const TOWERS = [
     apply:'耐张/转角', desc:'1000kV 同塔双回钢管耐张/转角塔。SJ301：呼高45/全高101/根开22.272/塔重234.08t，钢管对焊锻造法兰（✓已校验）。',
     ht3d:101, ro3d:22.272, conductorArr:'干字8分裂(耐张)', verified:true,
     line:'皖电东送（淮南—上海）·钢管耐张塔 SJ301',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'T', callBasis:'hCall',
   },
 
   { id:'drum1000', name:'鼓型同塔双回塔(1000kV)', shape:'drum', voltage:'1000kV 交流', circuit:'双回', func:'直线',
@@ -105,6 +130,8 @@ const TOWERS = [
     apply:'走廊极度紧张', desc:'1000kV 同塔双回鼓型塔，三层横担、6 相 8 分裂，共 48 根子导线（2 回 × 3 相 × 8 分裂），集约走廊。根开/塔重等部分尺寸未公开，3D 模型按通用设计比例示意。',
     ht3d:100, ro3d:20, conductorArr:'双回6相×8分裂(48根子导线)', verified:false,
     line:'1000kV 同塔双回线路（走廊受限段）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'V', callBasis:'hCall',
   },
 
   { id:'stem800', name:'干字型直流直线塔(±800kV)', shape:'stem', voltage:'±800kV 直流', circuit:'单回(双极)', func:'直线',
@@ -114,6 +141,8 @@ const TOWERS = [
     apply:'直流特高压单回双极', desc:'±800kV 直流常用干字型，双极导线呈"干"字布置，耐张/直线通用，输送容量 800 万千瓦。',
     ht3d:65, ro3d:16, conductorArr:'双极(干字)', verified:false,
     line:'云广/向上/锦苏等±800kV直流（干字型直线塔）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'I', callBasis:'hCall',
   },
 
   { id:'ram800', name:'羊角型直流耐张塔(±800kV)', shape:'ramhorn', voltage:'±800kV 直流', circuit:'单回(双极)', func:'耐张/转角',
@@ -123,6 +152,8 @@ const TOWERS = [
     apply:'直流耐张/转角', desc:'塔头呈羊角状，双极导线一个水平面，多用于直流耐张转角塔，受力清晰可通用。',
     ht3d:70, ro3d:17, conductorArr:'双极(羊角)', verified:false,
     line:'±800kV直流耐张转角（羊角型，如向上/锦苏工程）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:null, itype:'T', callBasis:'hCall',
   },
 
   { id:'stem1100', name:'干字型直流塔(±1100kV)', shape:'stem', voltage:'±1100kV 直流', circuit:'单回(双极)', func:'直线/耐张',
@@ -132,6 +163,8 @@ const TOWERS = [
     apply:'昌吉—古泉等', desc:'±1100kV 世界最高直流电压等级。昌吉—古泉：新疆段均高近 80m、均重 187t、最高 110m、最重 491t；陕西段塔材均重 145t、最重 324.79t、最高 130m。每极 8 根导线、单根直径近 5cm，输送容量 1200 万千瓦，经济输电距离 3000–5000km。',
     ht3d:110, ro3d:20, conductorArr:'双极8根(干字)', verified:true,
     line:'昌吉—古泉（准东—皖南，3324km）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'I', callBasis:'hCall',
   },
 
   { id:'ram1100', name:'羊角型直流塔(±1100kV)', shape:'ramhorn', voltage:'±1100kV 直流', circuit:'单回(双极)', func:'耐张/转角',
@@ -141,6 +174,8 @@ const TOWERS = [
     apply:'直流耐张/转角', desc:'±1100kV 直流耐张转角采用羊角型，双极水平布置，塔头羊角状。',
     ht3d:100, ro3d:20, conductorArr:'双极(羊角)', verified:false,
     line:'昌吉—古泉（准东—皖南）·耐张转角',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:null, itype:'T', callBasis:'hCall',
   },
 
   { id:'cross1100', name:'长江大跨越塔(±1100kV)', shape:'portal', voltage:'±1100kV 直流', circuit:'单回(双极)', func:'跨越',
@@ -150,6 +185,8 @@ const TOWERS = [
     apply:'昌吉—古泉长江大跨越', desc:'世界最高电压等级大跨越。展翅型钢管塔：呼高 223m、全高 225.2m、基础根开 45m、单基塔重 1259t，最大单管 Φ1100×28mm，导线横担与地线顶架连体（全长 29.2m、单侧重 41.11t），故呼高≈全高。跨越方式“耐-直-直-耐”，基础为钻孔灌注桩，单基 48 根主桩、桩长 52m。',
     ht3d:225.2, ro3d:45, conductorArr:'双极大跨越(六分裂)', verified:true,
     line:'昌吉—古泉长江大跨越（南/北跨越塔）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'I', callBasis:'hCall',
   },
 
   { id:'stem400', name:'干字型直流直线塔(±400kV)', shape:'stem', voltage:'±400kV 直流', circuit:'单回(双极)', func:'直线',
@@ -159,6 +196,8 @@ const TOWERS = [
     apply:'青—藏直流主干', desc:'±400kV 直线塔 ZV52，双"V"串、高低腿设计，全高42m、设计风速31.5m/s、覆冰10mm（✓已校验，中国电科院真型试验）。',
     ht3d:42, ro3d:12, conductorArr:'双极(干字±400)', verified:true,
     line:'青藏直流（格尔木—拉萨）·ZV52',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'V', callBasis:'hCall',
   },
 
   { id:'ram400', name:'干字型直流耐张/转角塔(±400kV)', shape:'stem', voltage:'±400kV 直流', circuit:'单回(双极)', func:'耐张/转角',
@@ -168,6 +207,8 @@ const TOWERS = [
     apply:'转角/耐张', desc:'青藏直流 J81 转角塔。中国电科院真型试验原文：“J81 型转角塔采用标准干字型结构，铁塔高 33 米，最大设计风速 34 米/秒，设计覆冰厚度 10 毫米，设计水平档距 350 米，垂直档距 600 米。”注意：塔型为干字型，并非羊角型。',
     ht3d:33, ro3d:10, conductorArr:'双极(干字±400)', verified:true,
     line:'青藏直流（格尔木—拉萨，1038km）·J81',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'T', callBasis:'attachment',
   },
 
   { id:'stem660', name:'干字型直流直线塔(±660kV)', shape:'stem', voltage:'±660kV 直流', circuit:'单回(双极)', func:'直线',
@@ -177,6 +218,8 @@ const TOWERS = [
     apply:'宁东—山东直流主干', desc:'±660kV 干字型直线塔，世界首个 ±660kV 直流工程（银川东—青岛，1335km）。极导线 4×JL/G3A-1000/45，1000mm² 大截面导线为世界首次工程应用。一般段 ZC3044：呼高 63m/全高 69.5m/塔重 54.8t；黄河大跨越直线塔：呼高 112m/全高 122.5m/重 249.5t。',
     ht3d:69.5, ro3d:18, conductorArr:'双极(干字±660)', verified:true,
     line:'宁东—山东（银川东—青岛，1335km）·ZC3044',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'I', callBasis:'hCall',
   },
 
   { id:'ram660', name:'羊角型直流耐张塔(±660kV)', shape:'ramhorn', voltage:'±660kV 直流', circuit:'单回(双极)', func:'耐张/转角',
@@ -186,8 +229,9 @@ const TOWERS = [
     apply:'转角/耐张', desc:'±660kV 转角耐张塔，宁东—山东工程 JC3041：呼高 42m/全高 54m/塔重 54.5t，极导线 4×JL/G3A-1000/45（世界首次 1000mm² 大截面）。',
     ht3d:54, ro3d:16, conductorArr:'双极(羊角±660)', verified:true,
     line:'宁东—山东（银川东—青岛）·JC3041',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'T', callBasis:'hCall',
   },
-
 
   { id:'transpos', name:'换位塔', shape:'cup', voltage:'各等级', circuit:'单回', func:'换位',
     code:'换位/SJ', hCall:'—', hTotal:'—', rootOpen:'—',
@@ -196,6 +240,8 @@ const TOWERS = [
     apply:'长线路三相平衡', desc:'长线路导线换位以平衡三相阻抗与不对称电流，塔头设换位横担，结构在耐张/直线塔基础上加换位功能。',
     ht3d:60, ro3d:14, conductorArr:'换位布置', verified:false,
     line:'长线路三相平衡（同塔多回/特高压长线换位）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:null, itype:'T', callBasis:'attachment',
   },
 
   { id:'terminal', name:'终端塔', shape:'stem', voltage:'各等级', circuit:'单/双回', func:'终端',
@@ -205,6 +251,8 @@ const TOWERS = [
     apply:'线路进出变电站', desc:'线路进入变电站的末端耐张塔，承受导线/地线全部张力（仅单侧挂线），是线路与变电站的衔接点。',
     ht3d:50, ro3d:12, conductorArr:'终端布置', verified:false,
     line:'线路进出变电站末端塔（各电压等级）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:null, itype:'T', callBasis:'attachment',
   },
 
   { id:'cup330', name:'酒杯型直线塔(330kV)', shape:'cup', voltage:'330kV', circuit:'单回', func:'直线',
@@ -214,6 +262,8 @@ const TOWERS = [
     apply:'西北330kV电网', desc:'西北电网特有 330kV，酒杯/猫头/干字型，导线 2 分裂，是超高压与高压间的过渡电压等级。',
     ht3d:50, ro3d:12, conductorArr:'水平2分裂(单回)', verified:false,
     line:'刘天关线（刘家峡—天水—关中，首条330kV）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:2, itype:'I', callBasis:'hCall',
   },
 
   { id:'cat330', name:'猫头型直线塔(330kV)', shape:'cat', voltage:'330kV', circuit:'单回', func:'直线',
@@ -223,6 +273,8 @@ const TOWERS = [
     apply:'西北330kV电网', desc:'330kV 猫头型，三角排列省走廊，西北电网主干塔型之一。',
     ht3d:48, ro3d:11, conductorArr:'三角2分裂(单回)', verified:false,
     line:'刘天关线（刘家峡—天水—关中，首条330kV）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:2, itype:'I', callBasis:'hCall',
   },
 
   { id:'cat750', name:'猫头型直线塔(750kV)', shape:'cat', voltage:'750kV', circuit:'单回', func:'直线',
@@ -232,6 +284,8 @@ const TOWERS = [
     apply:'西北750kV·省走廊段', desc:'750kV 猫头塔确实存在：国网 750kV 通用设计含 7A1-ZM1、7A1-ZM2、ZMK 三种单回路猫头塔，陕西西安南/西安东、宁夏沙湖 750kV 等工程环评文件均明确列出。导线 6×LGJ-400/50、分裂间距 400mm。猫头塔三角排列、塔重较轻，适用于无冰区。',
     ht3d:62, ro3d:15, conductorArr:'三角6分裂(单回)', verified:true,
     line:'750kV 通用设计 7A1-ZM1/ZM2/ZMK（西安南、西安东、沙湖 750kV 等）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'II', callBasis:'hCall',
   },
 
   { id:'drum500vh', name:'鼓型同塔双回直流塔(±500kV柔直)', shape:'drum', voltage:'±500kV 直流(柔直)', circuit:'双回', func:'直线/耐张',
@@ -241,7 +295,10 @@ const TOWERS = [
     apply:'张北柔直·走廊紧张', desc:'张北柔直 ±500kV 四端环网，采用“单双回路混合架设 + 金属回流线与极导线同塔并架”。直流架空线路 217.5km，其中单回 184.6km、与丰宁/北京同塔架设 32.4km。双极输送容量 3000MW，直流电流按 3kA 设计。注意：并非“三回同塔”。',
     ht3d:62, ro3d:14, conductorArr:'双回(含金属回线)', verified:true,
     line:'张北柔性直流电网（±500kV 四端环网）·张北/康保/丰宁/北京',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'V', callBasis:'attachment',
   },
+
   { id:'drum750', name:'鼓型同塔双回塔(750kV)', shape:'drum', voltage:'750kV', circuit:'双回', func:'直线',
     code:'鼓型/7D1-SZ·SZC', hCall:'33–51', hTotal:'—', rootOpen:'—',
     conductor:'6×LGJ-400/50（分裂间距400mm）', gw:'2根', insulator:'悬垂 III/V 串',
@@ -249,6 +306,8 @@ const TOWERS = [
     apply:'750kV 同塔双回·走廊紧张', desc:'750kV 双回路直线塔采用同塔双回垂直排列的鼓型塔，国网通用设计含 7D1-SZ1~SZC4 系列。陕西西安东 750kV 环评：7D1-SZC2 呼高 33–51m、水平档距 650m、垂直档距 850m；沙湖 750kV：同塔双回路段约 2×104km、导线 6×LGJ-400/50。根开/全高/塔重未公开，3D 按通用设计比例示意。',
     ht3d:66, ro3d:14, conductorArr:'垂直6相(双回)', verified:true,
     line:'国网通用设计 750kV 7D1 双回鼓型塔（西安南/西安东/沙湖 750kV）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'V', callBasis:'hCall',
   },
 
   { id:'stem750', name:'干字型耐张/转角塔(750kV)', shape:'stem', voltage:'750kV', circuit:'单回', func:'耐张/转角',
@@ -258,6 +317,8 @@ const TOWERS = [
     apply:'750kV 耐张/转角', desc:'750kV 单回路耐张塔均采用干字型塔（陕西西安东 750kV 环评明确：“单回路直线塔采用酒杯型塔，单回路耐张塔均采用干字型塔”）。通用设计含 7A1-J1~J4、7A1-JC1~JC4；7A1-JC1 呼高 27–42m、水平档距 600m、垂直档距 850m、允许转角 20°–40°。',
     ht3d:58, ro3d:13, conductorArr:'干字6分裂(耐张)', verified:true,
     line:'750kV 单回路耐张塔（国网通用设计 7A1-J/JC 系列）',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:6, itype:'T', callBasis:'hCall',
   },
 
   { id:'cross1000', name:'长江大跨越塔(1000kV交流)', shape:'portal', voltage:'1000kV 交流', circuit:'双回', func:'跨越',
@@ -267,6 +328,8 @@ const TOWERS = [
     apply:'皖电东送长江大跨越', desc:'皖电东送淮南—上海 1000kV 长江大跨越，南/北两基跨越塔为当时“我国特高压第一塔”：单塔高 277.5m、单基重 2650t、跨越长江约 3km，全部 36 根导线一次牵引跨越，施工中启用直升机辅助。根开/呼高未公开，3D 按比例示意。',
     ht3d:277.5, ro3d:52, conductorArr:'双回大跨越', verified:true,
     line:'皖电东送（淮南—上海）长江大跨越',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:8, itype:'T', callBasis:'attachment',
   },
 
   { id:'cross660', name:'黄河大跨越塔(±660kV)', shape:'portal', voltage:'±660kV 直流', circuit:'单回(双极)', func:'跨越',
@@ -276,6 +339,7 @@ const TOWERS = [
     apply:'宁东—山东 黄河大跨越', desc:'宁东—山东 ±660kV 黄河大跨越：耐张段 3249m、最大单跨 1240m，采用“耐-直-直-直-耐”。跨越河面两基直线塔为钢管塔，呼高 112m/全高 122.5m/单基 249.5t，为山东电网首次采用钢管塔；塔基建于离地 8.1m 承台之上，下设 36 根 44m 深承台桩，并设 17 根防撞桩。',
     ht3d:122.5, ro3d:22, conductorArr:'双极大跨越(四分裂)', verified:true,
     line:'宁东—山东（银川东—青岛）黄河大跨越',
+    /* 显式推导字段：不再靠正则从中文描述里猜 */
+    bundle:4, itype:'I', callBasis:'hCall',
   },
-
 ];
