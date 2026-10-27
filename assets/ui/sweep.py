@@ -33,7 +33,7 @@ with sync_playwright() as p:
     pg.wait_for_timeout(1200)
     for tid in ids:
         pg.evaluate("location.hash='#/t/%s'" % tid)
-        pg.wait_for_timeout(320)
+        pg.wait_for_timeout(760)
         info = pg.evaluate("""() => {
           const g = window.__towerGroup;
           const d = g && g.userData;

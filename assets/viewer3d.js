@@ -307,14 +307,21 @@ function buildTower(t){
     [-1,1].forEach(s=>{
       buildArm(s*neckHalf,yNeck, s*gwReach,yRim, baseHalf*0.23, baseHalf*0.19, 3, baseHalf*0.019, baseHalf*0.0090);
     });
+    // 杯口横梁：两壁顶之间的水平桁架。中相就挂在它跨中——
+    // 「杯口托住中相」是酒杯塔的判据；中相若挂在杯腰中央，悬垂串会整根埋进塔身
+    buildArm(-gwReach,yRim, gwReach,yRim, baseHalf*0.21, baseHalf*0.175,
+             Math.max(3,Math.round(gwReach)), baseHalf*0.018, baseHalf*0.0085);
     // 杯口顶部：每片杯壁各自向外上挑一枚地线小支架（杯沿）
     [-1,1].forEach(s=>{
       buildArm(s*gwReach*0.70,yRim, s*gwReach,yRim+H*0.016, baseHalf*0.20, baseHalf*0.17, 2, baseHalf*0.017, baseHalf*0.0082);
     });
-    // 三相：两边相挂横担端，中相挂横担中央下方
+    // 三相三角形排列：两边相挂下横担端（低），中相自杯口横梁跨中垂入杯内（高）
     addPhase(V(-reach*0.94,yArm,0),opt);
     addPhase(V( reach*0.94,yArm,0),opt);
-    addPhase(V(0,yArm,0),opt);
+    // 中相串不能长过杯内净高，否则导线会压在窄颈顶上——留 25% 余量
+    addPhase(V(0,yRim,0), Object.assign({},opt,{
+      insLen:Math.min(insLen,(yRim-yNeck)*0.75)
+    }));
     // 地线：杯口两端
     drawGW(-gwReach,yRim+H*0.016,spanHalf,sag*0.72,gwR);
     drawGW( gwReach,yRim+H*0.016,spanHalf,sag*0.72,gwR);
@@ -566,7 +573,10 @@ function addAnnotations(g){
   // 猫头的顶梁几乎贴着全高值（0.975H），标注间距要留大一点，否则压住顶梁
   const topOff=d.shape==='cat'?1.105:1.052;
   labelGroup.add(makeLabel('全高 '+d.totalHigh.toFixed(1)+' m',V(0,d.totalHigh*topOff,0)));
-  labelGroup.add(makeLabel('呼高 '+d.callHigh.toFixed(1)+' m',V(near?-off*1.15:-off,d.callHigh,0),'lbl-call'));
+  // 耐张塔/跨越塔/门型塔的导线挂在结构顶部附近，「呼高」会逼近全高（实测 94%~97%），
+  // 与旁边的「全高」自相矛盾。比值超过 0.90 就改称「导线挂点」——数值不变，只是叫法准确了。
+  const callTxt=d.callHigh>d.totalHigh*0.90?'导线挂点':'呼高';
+  labelGroup.add(makeLabel(callTxt+' '+d.callHigh.toFixed(1)+' m',V(near?-off*1.15:-off,d.callHigh,0),'lbl-call'));
   labelGroup.add(makeLabel('根开 '+d.rootOpen.toFixed(1)+' m',V(d.rootOpen*0.5,1.2,0),'lbl-root'));
   g.add(labelGroup);
 }
