@@ -1,0 +1,55 @@
+<header class="topbar">
+  <a class="brand" href="#/">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24"><path d="M12 2 4 22M12 2l8 20M12 2v20M6.4 14h11.2M8.2 9h7.6"/></svg>
+    </span>
+    <span class="brand-txt"><b>铁塔大全</b><i>Tower Atlas</i></span>
+  </a>
+  <nav class="topnav" id="topnav">
+    <a href="#/" data-nav="home">检索</a>
+    <a href="#/list" data-nav="list">塔型库</a>
+    <a href="#/terms" data-nav="terms">术语</a>
+    <a href="#/sources" data-nav="sources">校验依据</a>
+  </nav>
+  <div class="topmeta" id="topmeta"></div>
+</header>
+
+<main id="view"></main>
+
+<footer class="foot">
+  <div class="links">
+    <a href="#/">检索</a>
+    <a href="#/list">塔型库</a>
+    <a href="#/terms">术语</a>
+    <a href="#/sources">校验依据与文献</a>
+  </div>
+  <div class="std">
+    <b>主要依据：</b>DL/T 5154-2012《架空输电线路杆塔结构设计技术规定》 ｜ GB/T 2694-2018《输电线路铁塔制造技术条件》 ｜
+    DL/T 646《输电线路钢管杆制造技术条件》 ｜ 国家电网公司输变电工程通用设计（110kV–1000kV 杆塔分册）
+  </div>
+  <div>
+    <b>铁塔大全 · 输电铁塔型式图鉴</b> ｜ 数据整理自公开工程资料与杆塔设计规范，标注「已校验」者有一手出处 ｜
+    未标注者为型式示意 ｜ 3D 引擎：Three.js
+  </div>
+</footer>
+
+<!-- 3D 视口宿主：进入详情页时搬入 DOM 并初始化 -->
+<div id="viewerHost" class="vhost" hidden>
+  <div class="stage">
+    <div class="hud" id="hud">铁塔</div>
+    <div class="vctl">
+      <label><input type="checkbox" id="annChk" checked> 参数标注</label>
+      <button id="resetView" type="button">复位视角</button>
+      <button id="autoBtn" type="button">自动旋转</button>
+      <button id="wireBtn" type="button">线框 / 实体</button>
+    </div>
+    <div class="load3d" id="load3d">正在初始化 3D 渲染…</div>
+    <canvas id="three"></canvas>
+  </div>
+  <aside class="side">
+    <h3 id="sideName">—</h3>
+    <div id="sideBadges"></div>
+    <div id="sideParams"></div>
+  </aside>
+</div>
+<select id="towerSel" hidden aria-hidden="true"></select>

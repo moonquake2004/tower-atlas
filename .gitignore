@@ -1,0 +1,29 @@
+# ---------- 本地备份（每份约 3.7 MB，不入库） ----------
+铁塔大全_备份_*.html
+
+# ---------- 临时脚本 / 编辑器缓存 ----------
+temp_check.js
+.workbuddy/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
+# ---------- 开发过程对比图（README 用到的截图不在此列） ----------
+assets/3d_cat_head.png
+assets/cat_3d_old_vs_new.png
+assets/cat_head_compare.png
+assets/ref_cat_head.png
+assets/fix_sag.png
+assets/svg_board.png
+assets/svg_cat.png
+assets/ui_report.json
+assets/ui_detail.png
+assets/ui_detail_cross.png
+assets/ui_detail_stem.png
+assets/ui_home2.png
+assets/ui_mobile_detail.png
+assets/ui_mobile_sources.png
+assets/ui_sources.png
+assets/ui_table.png
+assets/ui_terms.png
